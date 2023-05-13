@@ -147,31 +147,31 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
       { values: theme('spacing') }
    );
    matchUtilities(
-      { bw: (value) => ({ border: `solid ${value}` }) },
-      { values: theme('spacing') }
-   );
-   matchUtilities(
-      { btw: (value) => ({ borderTop: `solid ${value}` }) },
-      { values: theme('spacing') }
-   );
-   matchUtilities(
-      { brw: (value) => ({ borderRight: `solid ${value}` }) },
-      { values: theme('spacing') }
-   );
-   matchUtilities(
-      { blw: (value) => ({ borderLeft: `solid ${value}` }) },
-      { values: theme('spacing') }
-   );
-   matchUtilities(
-      { bbw: (value) => ({ borderBottom: `solid ${value}` }) },
-      { values: theme('spacing') }
-   );
-   matchUtilities(
-      { bc: (value) => ({ "--tw-b-opacity": "1", color: value }) },
+      { bc: (value) => ({ "--tw-b-opacity": "1", color: value, border: 'solid 3px' }) },
       {
          type: ['color'],
          values: Object.fromEntries(Object.entries(theme('colors')).map(([k, v]) => [k, v.replace('<alpha-value>', 'var(--tw-b-opacity)')])),
       }
+   );
+   matchUtilities(
+      { bw: (value) => ({ border: `solid ${value}` }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { btw: (value) => ({ borderTopWidth: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { brw: (value) => ({ borderRightWidth: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { blw: (value) => ({ borderLeftWidth: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { bbw: (value) => ({ borderBottomWidth: value }) },
+      { values: theme('spacing') }
    );
    matchUtilities(
       { bo: (value) => ({ "--tw-b-opacity": value }) },

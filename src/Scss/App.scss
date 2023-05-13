@@ -30,9 +30,9 @@
    --tw-red: 239 67 67;
    --red: rgb(var(--tw-red));
    // fonts    
-   --text-regular: 'Josefinsans regular';
-   --text-semibold: 'Josefinsans semibold';
-   --text-bold: 'Josefinsans bold';
+   --text-regular: 'nunitosans regular';
+   --text-semibold: 'nunitosans semibold';
+   --text-extrabold: 'nunitosans extrabold';
    font-family: var(--text-regular);
 }
 
@@ -79,7 +79,7 @@ footer>section {
 h1 {
    font-size: 3.25rem;
    line-height: 1.1em;
-   font-family: var(--text-bold);
+   font-family: var(--text-extrabold);
 
    >strong,
    >b {
@@ -89,7 +89,7 @@ h1 {
 
 h2 {
    font-size: 1.875rem;
-   font-family: var(--text-bold);
+   font-family: var(--text-extrabold);
 
    >strong,
    >b {
@@ -108,7 +108,7 @@ h3 {
 }
 
 strong {
-   font-family: var(--text-bold);
+   font-family: var(--text-extrabold);
 }
 
 b {
@@ -181,21 +181,21 @@ button {
 
 //// START OF FONTS ////
 @font-face {
-   font-family: 'Josefinsans regular';
-   src: url('/Fonts/josefinsans-regular.woff2') format('woff2'),
-      url('/Fonts/josefinsans-regular.woff') format('woff');
+   font-family: 'nunitosans regular';
+   src: url('/Fonts/nunitosans-regular.woff2') format('woff2'),
+      url('/Fonts/nunitosans-regular.woff') format('woff');
 }
 
 @font-face {
-   font-family: 'Josefinsans semibold';
-   src: url('/Fonts/josefinsans-semibold.woff2') format('woff2'),
-      url('/Fonts/josefinsans-semibold.woff') format('woff');
+   font-family: 'nunitosans semibold';
+   src: url('/Fonts/nunitosans-semibold.woff2') format('woff2'),
+      url('/Fonts/nunitosans-semibold.woff') format('woff');
 }
 
 @font-face {
-   font-family: 'Josefinsans bold';
-   src: url('/Fonts/josefinsans-bold.woff2') format('woff2'),
-      url('/Fonts/josefinsans-bold.woff') format('woff');
+   font-family: 'nunitosans extrabold';
+   src: url('/Fonts/nunitosans-extrabold.woff2') format('woff2'),
+      url('/Fonts/nunitosans-extrabold.woff') format('woff');
 }
 
 //// END OF FONTS ////

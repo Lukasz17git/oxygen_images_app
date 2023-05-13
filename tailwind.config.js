@@ -36,7 +36,7 @@ export default {
          fontFamily: {
             "regular": 'var(--text-regular)',
             "semibold": 'var(--text-semibold)',
-            "bold": 'var(--text-bold)',
+            "extrabold": 'var(--text-extrabold)',
             /*Fonts*/
          },
          screens: extendScreens,
