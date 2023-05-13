@@ -187,6 +187,8 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
 
 export function addCustomUtilities({ addUtilities }) {
    addUtilities({
+
+      ".transform-to-center": { top: "50%", left: "50%", transform: "translate(-50%,-50%)" },
       ".i": { display: "inline" },
       ".iblock": { display: "inline-block" },
       ".iflex": { display: "inline-flex" },
@@ -220,7 +222,7 @@ export function addTextUtilities({ addUtilities, matchUtilities, theme }) {
       ".tw": { whiteSpace: "nowrap" },
       ".tcap": { textTransform: "capitalize" },
       ".tlower": { textTransform: "lowercase" },
-      ".tupper": { textTransform: "uppercase" },
+      ".tupper": { textTransform: "uppercase" }
    });
    matchUtilities(
       { ts: (value) => ({ fontSize: value }) },

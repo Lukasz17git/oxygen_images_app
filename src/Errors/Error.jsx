@@ -14,7 +14,7 @@ const Error = () => {
    const clearError = () => dispatch(setValue('error', null))
 
    return (!error && (
-      <button className='pos-f z-999 bg-white br-16 p-10 max-w-[26rem] btw-4 bc-red s-modal sm:p-14' onClick={clearError}>
+      <button className='pos-f z-999 transform-to-center bg-white br-16 p-10 max-w-[26rem] btw-4 bc-red s-modal sm:p-14' onClick={clearError}>
          <div className="frcc g-12 br-12 bg-red tc-white tupper py-16 px-32">
             <h2 className="ts-30">Error:</h2>
             <img className="w-32 h-32" src="/Icons/error.svg" loading="lazy" alt="error" />
