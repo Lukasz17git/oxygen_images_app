@@ -1,18 +1,17 @@
+import Error from "./Errors/Error";
+
 
 
 function App() {
-
-
    return (
       <>
          {/* <Navbar />
          <Router />
          <Footer />
-         <Modal />
-         <Error /> */}
-         <div className="pos-f o-10 ls-1 bg-grey-light bw-1 bc-main bo-50 t-0 l-0 w-100p h-40"></div>
+         <Modal /> */}
+         <Error />
       </>
-   )
+   );
 }
 
-export default App
+export default App;

@@ -13,31 +13,25 @@ const Error = () => {
    const dispatch = useDispatch()
    const clearError = () => dispatch(setValue('error', null))
 
-   return (error && (
-      <button className='error-container bg-main tc-black s-lg bw-2 bdot text-opacity-100 pos-f z-50 t-100p b-100' onClick={clearError}>
-         <div className="error-title">
-            <h2>Error:</h2>
-            <img className="i-error" src="/Icons/error.svg" loading="lazy" alt="error" />
+   return (!error && (
+      <button className='pos-f z-999 bg-white br-16 p-10 max-w-[26rem] btw-4 bc-red s-modal sm:p-14' onClick={clearError}>
+         <div className="frcc g-12 br-12 bg-red tc-white tupper py-16 px-32">
+            <h2 className="ts-30">Error:</h2>
+            <img className="w-32 h-32" src="/Icons/error.svg" loading="lazy" alt="error" />
          </div>
-         {locationErrorText && (
-            <div className="error-description">
-               <b>Lugar:</b>
-               <span>{locationErrorText}</span>
-            </div>
-         )}
-         {fieldErrorText && (
-            <div className="error-description">
-               <b>En:</b>
-               <span>{fieldErrorText}</span>
-            </div>
-         )}
-         {typeErrorText && (
-            <div className="error-description">
-               <b>Tipo de error:</b>
-               <span>{typeErrorText}</span>
-            </div>
-         )}
+         {locationErrorText && <ErrorDescription title="Lugar:" text={locationErrorText} />}
+         {fieldErrorText && <ErrorDescription title="En:" text={fieldErrorText} />}
+         {typeErrorText && <ErrorDescription title="Tipo de error:" text={typeErrorText} />}
       </button>
    ))
+}
+
+const ErrorDescription = ({ title, text }) => {
+   return (
+      <div className="m-16 frc g-12 oh">
+         <b className="ts-17">{title}</b>
+         <span>{text}</span>
+      </div>
+   )
 }
 export default Error
