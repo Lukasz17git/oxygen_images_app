@@ -110,6 +110,22 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
       { values: theme('spacing') }
    );
    matchUtilities(
+      { btr: (value) => ({ borderTopLeftRadius: value, borderTopRightRadius: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { brr: (value) => ({ borderTopRightRadius: value, borderBottomRightRadius: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { bbr: (value) => ({ borderBottomRightRadius: value, borderBottomLeftRadius: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
+      { blr: (value) => ({ borderTopLeftRadius: value, borderBottomLeftRadius: value }) },
+      { values: theme('spacing') }
+   );
+   matchUtilities(
       { btlr: (value) => ({ borderTopLeftRadius: value }) },
       { values: theme('spacing') }
    );
@@ -437,7 +453,7 @@ export const widthSpacing = ({ theme }) => ({
 })
 
 export const extendScreens = {
-   'esm': '366px'
+   'xsm': '372px'
 }
 
 export const extendOpacity = {
