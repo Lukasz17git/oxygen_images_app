@@ -74,6 +74,11 @@ export function renameModifiers({ addVariant }) {
 export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
 
    matchUtilities(
+      { o: (value) => ({ opacity: value }) },
+      { values: theme('opacity') }
+   )
+
+   matchUtilities(
       { bgo: (value) => ({ "--tw-bg-opacity": value }) },
       { values: theme('opacity') }
    )
@@ -212,10 +217,10 @@ export function addTextUtilities({ addUtilities, matchUtilities, theme }) {
       ".te": { textAlign: "end" },
       ".tl": { textAlign: "left" },
       ".tr": { textAlign: "right" },
+      ".tw": { whiteSpace: "nowrap" },
       ".tcap": { textTransform: "capitalize" },
-      ".tlow": { textTransform: "lowercase" },
-      ".tup": { textTransform: "uppercase" },
-      ".tw": { whiteSpace: "nowrap" }
+      ".tlower": { textTransform: "lowercase" },
+      ".tupper": { textTransform: "uppercase" },
    });
    matchUtilities(
       { ts: (value) => ({ fontSize: value }) },
@@ -240,6 +245,11 @@ export function addTextUtilities({ addUtilities, matchUtilities, theme }) {
       { lh: (value) => ({ lineHeight: value }) },
       { values: theme('spacing') }
    );
+   matchUtilities(
+      { ls: (value) => ({ letterSpacing: value }) },
+      { values: theme('spacing') }
+   );
+
 }
 
 export function addFlexUtilities({ addUtilities }) {
