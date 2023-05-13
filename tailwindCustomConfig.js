@@ -147,23 +147,23 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
       { values: theme('spacing') }
    );
    matchUtilities(
-      { bw: (value) => ({ borderWidth: value, borderStyle: "solid" }) },
+      { bw: (value) => ({ border: `solid ${value}` }) },
       { values: theme('spacing') }
    );
    matchUtilities(
-      { btw: (value) => ({ borderTopWidth: value, borderStyle: "solid" }) },
+      { btw: (value) => ({ borderTop: `solid ${value}` }) },
       { values: theme('spacing') }
    );
    matchUtilities(
-      { brw: (value) => ({ borderRightWidth: value, borderStyle: "solid" }) },
+      { brw: (value) => ({ borderRight: `solid ${value}` }) },
       { values: theme('spacing') }
    );
    matchUtilities(
-      { blw: (value) => ({ borderLeftWidth: value, borderStyle: "solid" }) },
+      { blw: (value) => ({ borderLeft: `solid ${value}` }) },
       { values: theme('spacing') }
    );
    matchUtilities(
-      { bbw: (value) => ({ borderBottomWidth: value, borderStyle: "solid" }) },
+      { bbw: (value) => ({ borderBottom: `solid ${value}` }) },
       { values: theme('spacing') }
    );
    matchUtilities(
