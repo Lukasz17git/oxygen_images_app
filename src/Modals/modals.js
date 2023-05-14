@@ -1,11 +1,5 @@
-import LoginOrRegister from "./LoginOrRegister/LoginOrRegister"
-import Login from "./Login/Login"
-import Logout from "./Logout/Logout"
-import Register from "./Register/Register"
-import Settings from "./Settings/Settings"
+import Categories from "./Categories/Categories"
 
 export const modals = {
-    categories: 
+   categories: Categories
 }
-
-export const modalIDs = Object.keys(modals)

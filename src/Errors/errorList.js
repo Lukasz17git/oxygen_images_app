@@ -1,18 +1,20 @@
 
 export const locationErrorsText = {
-    unknown: 'desconocido',
-    app: 'aplicación',
-    localStorage: 'Autoguardado local',
-    // getData: 'Obtener datos',
+   unknown: 'Desconocido',
+   app: 'Aplicación',
+   localStorage: 'Autoguardado local',
+   // getData: 'Obtener datos',
 }
 
 export const fieldErrorsText = {
-    unknown: 'desconocido',
-    server: 'Servidor',
+   unknown: 'Desconocido',
+   server: 'Servidor',
+   modal: 'Modal',
 }
 
 export const typeErrorsText = {
-    unknown: 'Desconocido',
-    server: 'Servidor',
-    missing: 'Faltante'
+   unknown: 'Desconocido',
+   server: 'Servidor',
+   missing: 'Faltante',
+   invalid: 'Inválido',
 }

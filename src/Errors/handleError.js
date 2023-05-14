@@ -1,4 +1,4 @@
-import { setNewError } from "../Store/Reducers/errorReducers"
+import { setNewErrorAction } from "../Store/Actions/errorActions"
 import { locationErrorsText, fieldErrorsText, typeErrorsText } from "./errorList"
 
 // const errorTemplate = { location: '', field: '', type: '', isLocalError: false }
@@ -17,19 +17,19 @@ export const newError = (location, field, type) => ({
 const handleError = (dispatch, error) => {
 
 
-   if (typeof error !== 'object') return dispatch(setNewError(unknownError))
+   if (typeof error !== 'object') return dispatch(setNewErrorAction(unknownError))
 
-   if (error.isLocalError) return dispatch(setNewError(error))
+   if (error.isLocalError) return dispatch(setNewErrorAction(error))
 
-   if (error.status === 500) return dispatch(setNewError(serverError))
+   if (error.status === 500) return dispatch(setNewErrorAction(serverError))
 
-   if (error.message === 'Failed to fetch') return dispatch(setNewError(runningWithoutServerError))
+   if (error.message === 'Failed to fetch') return dispatch(setNewErrorAction(runningWithoutServerError))
 
    const data = error.data
-   if (!data || typeof data !== 'object' || Array.isArray(data)) return dispatch(setNewError(unknownError))
+   if (!data || typeof data !== 'object' || Array.isArray(data)) return dispatch(setNewErrorAction(unknownError))
 
    //errors comming from custom server, which currently isnt our case, but ll be easy to implement using this line
-   return dispatch(setNewError(error.data))
+   return dispatch(setNewErrorAction(error.data))
 }
 
 export default handleError

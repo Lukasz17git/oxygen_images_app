@@ -1,24 +1,22 @@
 import { useTypedSelector } from "../Store/store"
-import { setValue } from "../Store/rootReducers"
-import { initialModal } from "../Store/InitialStates/initialModal"
 import { modals } from "./modals"
 import useDispatchErrorWrappedThunk from "../Hooks/useDispatchErrorWrappedThunk"
-
+import { closeModalAction } from "../Store/Actions/modalActions"
 
 const Modal = () => {
-  const modalId = useTypedSelector(state => state.modal.id) || null
-  const ActiveModal = modalId && modals[modalId]
+   const modalId = useTypedSelector(state => state.modal.id)
+   const ActiveModal = modalId && modals[modalId]
 
-  const { dispatchErrorWrappedThunk, dispatch } = useDispatchErrorWrappedThunk()
+   const { dispatchErrorWrappedThunk, dispatch } = useDispatchErrorWrappedThunk()
 
-  const closeModal = () => dispatch(setValue('modal', initialModal))
-  const getModalData = (getState) => getState().modal.data
+   const closeModal = () => dispatch(closeModalAction())
+   const getModalData = (getState) => getState().modal.data
 
-  return ActiveModal && <ActiveModal
-    closeModal={closeModal}
-    modalDataPath={'modal.data'}
-    getModalData={getModalData}
-    dispatchErrorWrappedThunk={dispatchErrorWrappedThunk}
-  />
+   return ActiveModal && <ActiveModal
+      closeModal={closeModal}
+      modalDataPath={'modal.data'}
+      getModalData={getModalData}
+      dispatchErrorWrappedThunk={dispatchErrorWrappedThunk}
+   />
 }
 export default Modal

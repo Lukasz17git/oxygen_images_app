@@ -1,14 +1,18 @@
 import Error from "./Errors/Error";
+import Router from "./Router/Router";
+import Footer from "./Sections/Footer/Footer";
+import Navbar from "./Sections/Navbar/Navbar";
+// import Modal from "./Modals/Modal";
 
 
 
 function App() {
    return (
       <>
-         {/* <Navbar />
+         <Navbar />
          <Router />
          <Footer />
-         <Modal /> */}
+         {/* <Modal /> */}
          <Error />
       </>
    );

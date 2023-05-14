@@ -4,7 +4,7 @@ import plugin from 'tailwindcss/plugin'
 import {
    defaultColors,
    addAbbreviations, addFlexUtilities, addTextUtilities, addCustomUtilities, addShadowAbbreviation,
-   renameModifiers, pixelSpacing, heightSpacing, widthSpacing, extendOpacity, extendZIndex, extendScreens
+   renameModifiers, pixelSpacing, heightSpacing, widthSpacing, extendOpacity, extendZIndex, extendScreens, lineHeightValues
 } from './tailwindCustomConfig.js'
 
 export default {
@@ -51,13 +51,14 @@ export default {
       width: widthSpacing,
       maxWidth: widthSpacing,
       minWidth: widthSpacing,
+      lineHeight: lineHeightValues,
    },
    plugins: [
+      plugin(addCustomUtilities),
       plugin(addShadowAbbreviation),
       plugin(addAbbreviations),
       plugin(addFlexUtilities),
       plugin(addTextUtilities),
-      plugin(addCustomUtilities),
       plugin(renameModifiers),
    ],
 }

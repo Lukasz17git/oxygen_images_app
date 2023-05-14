@@ -3,7 +3,6 @@ import thunk from "redux-thunk";
 import { useSelector } from "react-redux";
 import { functionUpdateKey, resetStoreKey } from "./rootReducers";
 
-
 const initialState = {
    error: null,
    modal: {

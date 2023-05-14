@@ -245,7 +245,7 @@ export function addTextUtilities({ addUtilities, matchUtilities, theme }) {
    );
    matchUtilities(
       { lh: (value) => ({ lineHeight: value }) },
-      { values: theme('spacing') }
+      { values: theme('lineHeight') }
    );
    matchUtilities(
       { ls: (value) => ({ letterSpacing: value }) },
@@ -489,6 +489,9 @@ export const extendOpacity = {
 };
 
 export const extendZIndex = {
+   1: '1',
+   2: '2',
+   3: '3',
    60: '60',
    70: '70',
    80: '80',
@@ -501,4 +504,20 @@ export const extendZIndex = {
    1000: '1000',
    1001: '1001',
    9999: '9999',
+}
+
+export const lineHeightValues = {
+   "0.5": '0.5em',
+   "0.625": '0.625em',
+   "0.75": '0.75em',
+   "0.875": '0.875em',
+   "1": '1em',
+   "1.125": '1.125em',
+   "1.25": '1.25em',
+   "1.325": '1.325em',
+   "1.5": '1.5em',
+   "1.625": '1.625em',
+   "1.75": '1.75em',
+   "1.875": '1.875em',
+   "2": '2em'
 }
