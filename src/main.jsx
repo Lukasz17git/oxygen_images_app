@@ -4,11 +4,12 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './Store/store'
 import './Css/App.css'
+import './Css/Inputs.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+   <React.StrictMode>
+      <Provider store={store}>
+         <App />
+      </Provider>
+   </React.StrictMode>,
 )

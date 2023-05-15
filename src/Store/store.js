@@ -9,7 +9,6 @@ const initialState = {
       id: '',
       data: null
    },
-   route: "/",
    app: {
       searchedValues: [], //array of strings
       savedImages: [], //array of image (initial image)

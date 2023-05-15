@@ -7,10 +7,10 @@ const Navbar = () => {
 
    return (
       <nav className="pos-f z-10 t-0 l-0 bg-white s-modal w-100%">
-         <section className="py-8 px-12 frcb m-a">
+         <section className="py-8 px-[4vw] frcb m-a">
             <Link href="/">
                <a className="h-32 frcc">
-                  <img src="/public/CriticalIcons/logo.svg" loading="lazy" alt="logo-hero-section" />
+                  <img src="/CriticalIcons/logo.svg" loading="lazy" alt="logo-hero-section" />
                </a>
             </Link>
             <Link href={`/${linkToShow}`} className="frcc g-8">

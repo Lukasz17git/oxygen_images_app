@@ -1,8 +1,9 @@
 
 
-const Discover = () => {
+const Discover = ({ params }) => {
+   console.log(params)
    return (
-      <div>Discover</div>
+      <section>Discover</section>
    )
 }
 export default Discover

@@ -344,15 +344,18 @@ export function addFlexUtilities({ addUtilities }) {
          alignItems: "center",
          justifyContent: "center"
       },
-      '.ffix': {
+      '.fs0': {
          flexShrink: 0
       },
-      '.fgrow': {
-         flex: '1'
+      '.fs1': {
+         flexShrink: 1
       },
-      '.fshrink': {
-         flex: '1 1'
-      }
+      '.fg0': {
+         flexGrow: 0
+      },
+      '.fg1': {
+         flexGrow: 1
+      },
    })
 }
 
