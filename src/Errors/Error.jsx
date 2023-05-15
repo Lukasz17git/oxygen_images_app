@@ -3,7 +3,6 @@ import { useTypedSelector } from "../Store/store"
 import { clearErrorAction } from "../Store/Actions/errorActions"
 
 const Error = () => {
-   console.log('rendered error')
 
    const error = useTypedSelector(state => state.error)
 
