@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ActionIcon from "./ActionIcon"
 import Input from "./Input"
+import { basePath } from "../../basePath"
 
 
 const BigInput = ({ initialValue = '', handleSearch }) => {
@@ -22,7 +23,7 @@ const BigInput = ({ initialValue = '', handleSearch }) => {
             onKeyDown={handleKeyDown}
          />
          <ActionIcon
-            src="/CriticalIcons/search.svg"
+            src={`${basePath}CriticalIcons/search.svg`}
             className="br-4 bg-main-light h-40 w-40 fs0 f:oc-on-focus"
             iconClassName="h-24 w-24"
             onClick={() => handleSearch(value)} />
