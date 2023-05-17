@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import ActionIcon from "../../../Components/ActionIcon"
 import { removeOneCategoryFilterAction } from "../../../Store/Actions/galleryActions"
+import { basePath } from "../../../../basePath"
 
 
 const CategoryChip = ({ category, index }) => {
@@ -12,7 +13,7 @@ const CategoryChip = ({ category, index }) => {
          <span className="blockmin-w-24 pr-4 pl-6 pb-1 tc">{category}</span>
          <ActionIcon
             className="w-20 h-20"
-            src="/CriticalIcons/remove-chip.svg"
+            src={`${basePath}CriticalIcons/remove-chip.svg`}
             iconClassName='w-14 h-14'
             onClick={removeCategoryFilter} />
       </div>

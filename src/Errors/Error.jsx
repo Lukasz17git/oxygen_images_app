@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { useTypedSelector } from "../Store/store"
 import { clearErrorAction } from "../Store/Actions/errorActions"
+import { basePath } from "../../basePath"
 
 const Error = () => {
 
@@ -20,7 +21,7 @@ const Error = () => {
       >
          <div className="frcc g-16 br-12 bg-red tc-white tupper py-16 px-32">
             <h2>Error:</h2>
-            <img className="w-32 h-32" src="/Icons/error.svg" loading="lazy" alt="error" />
+            <img className="w-32 h-32" src={`${basePath}Icons/error.svg`} loading="lazy" alt="error" />
          </div>
          {locationErrorText && <ErrorDescription title="Place:" text={locationErrorText} />}
          {fieldErrorText && <ErrorDescription title="In:" text={fieldErrorText} />}

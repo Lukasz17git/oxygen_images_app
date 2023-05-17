@@ -5,6 +5,7 @@ import { editCategoryFromCategoriesModalAction } from "../../../Store/Actions/ca
 import Input from "../../../Components/Input"
 import ActionIcon from "../../../Components/ActionIcon"
 import { useDispatch } from "react-redux"
+import { basePath } from "../../../../basePath"
 
 
 const EditCategory = ({ modalDataPath, index }) => {
@@ -29,7 +30,7 @@ const EditCategory = ({ modalDataPath, index }) => {
          />
          <ActionIcon
             className="w-40 h-40 br-5 bg-grey-light"
-            src="/CriticalIcons/delete-category.svg"
+            src={`${basePath}CriticalIcons/delete-category.svg`}
             iconClassName='w-20 h-20'
             onClick={deleteCategory} />
       </div>

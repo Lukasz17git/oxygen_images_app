@@ -1,18 +1,19 @@
-import { Route } from "wouter"
+import { Route, Router as RouterWrapper } from "wouter"
 import Hero from "../Sections/Hero/Hero"
 import Discover from "../Sections/DiscoverImages/Discover"
 import Gallery from "../Sections/Gallery/Gallery"
+import { basePath } from "../../basePath"
 
 
 
 const Router = () => {
    return (
-      <>
-         <Route path="/oxygen_images_app/" component={Hero} />
-         <Route path="/oxygen_images_app/discover/:search/:page" component={Discover} />
-         <Route path="/oxygen_images_app/discover" component={Discover} />
-         <Route path="/oxygen_images_app/gallery" component={Gallery} />
-      </>
+      <RouterWrapper base={basePath}>
+         <Route path="" component={Hero} />
+         <Route path="discover/:search/:page" component={Discover} />
+         <Route path="discover" component={Discover} />
+         <Route path="gallery" component={Gallery} />
+      </RouterWrapper>
    )
 }
 

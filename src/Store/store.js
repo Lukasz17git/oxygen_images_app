@@ -37,40 +37,22 @@ const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
 
 /* LOCAL STORE SUBSCRIPTION */
 
-let previousStoreSavedImagesState = store.getState().app.savedImages
-let previousStoreCategoriesState = store.getState().app.categories
-let previousStoreLastSearchedImagesState = store.getState().app.lastSearchedImages
-let previousStoreLastSavedImagesState = store.getState().app.lastSavedImages
-let previousStoreLastRemovedState = store.getState().app.lastRemovedImages
+const previousStoreAppState = (({ savedImages, categories, lastSearchedImages, lastSavedImages, lastRemovedImages }) => ({
+   savedImages, categories, lastSearchedImages, lastSavedImages, lastRemovedImages
+}))(store.getState().app)
 
 const updateLocalStore = () => {
-   const savedImages = store.getState().app.savedImages
-   const categories = store.getState().app.categories
-   const lastSearchedImages = store.getState().app.lastSearchedImages
-   const lastSavedImages = store.getState().app.lastSavedImages
-   const lastRemovedImages = store.getState().app.lastRemovedImages
 
-   if (savedImages !== previousStoreSavedImagesState) {
-      previousStoreSavedImagesState = savedImages
-      localStorage.setItem('savedImages', JSON.stringify(savedImages))
-   }
-   if (categories !== previousStoreCategoriesState) {
-      previousStoreCategoriesState = categories
-      localStorage.setItem('categories', JSON.stringify(categories))
-   }
-   if (lastSearchedImages !== previousStoreLastSearchedImagesState) {
-      previousStoreLastSearchedImagesState = lastSearchedImages
-      localStorage.setItem('lastSearchedImages', JSON.stringify(lastSearchedImages))
-   }
-   if (lastSavedImages !== previousStoreLastSavedImagesState) {
-      previousStoreLastSavedImagesState = lastSavedImages
-      localStorage.setItem('lastSavedImages', JSON.stringify(lastSavedImages))
-   }
-   if (lastRemovedImages !== previousStoreLastRemovedState) {
-      previousStoreLastRemovedState = lastRemovedImages
-      localStorage.setItem('lastRemovedImages', JSON.stringify(lastRemovedImages))
-   }
+   console.log('running subscription')
 
+   for (const storeSectionKey in previousStoreAppState) {
+      const currentState = store.getState().app[storeSectionKey]
+      if (currentState !== previousStoreAppState[storeSectionKey]) {
+         console.log('state changed inside', storeSectionKey)
+         previousStoreAppState[storeSectionKey] = currentState
+         localStorage.setItem(storeSectionKey, JSON.stringify(currentState))
+      }
+   }
 }
 
 store.subscribe(updateLocalStore)

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import ActionIcon from "../../../Components/ActionIcon"
 import { openDeleteImageModalAction } from "../../../Store/Actions/modalActions"
+import { basePath } from "../../../../basePath"
 
 
 const DeleteImage = ({ imageId }) => {
@@ -11,7 +12,7 @@ const DeleteImage = ({ imageId }) => {
    return (
       <ActionIcon
          className="br-100% w-32 h-32 bg-overlay"
-         src={`/CriticalIcons/delete.svg`}
+         src={`${basePath}CriticalIcons/delete.svg`}
          iconClassName='w-18 h-18'
          onClick={handleClick} />
    )

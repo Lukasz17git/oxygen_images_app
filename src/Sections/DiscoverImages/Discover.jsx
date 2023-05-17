@@ -15,16 +15,9 @@ const Discover = ({ params }) => {
    const valueToSearch = params.search
    const page = params.page || 1
 
-
-   const [, setLocation] = useLocation()
-   const handleNavigation = (value) => {
-      setLocation(`/discover/${valueToSearch}/${value}`)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-   }
-
    const { dispatchErrorWrappedThunk } = useDispatchErrorWrappedThunk()
-
    useEffect(() => {
+      
       let isStillValidForAsyncTask = true
 
       dispatchErrorWrappedThunk(async (dispatch, getState) => {
@@ -43,8 +36,14 @@ const Discover = ({ params }) => {
          setTotalPages(total_pages)
       })
       return () => isStillValidForAsyncTask = false
-   }, [page, valueToSearch, dispatchErrorWrappedThunk])
+   }, [page, valueToSearch, params])
 
+
+   const [, setLocation] = useLocation()
+   const handleNavigation = (value) => {
+      setLocation(`discover/${valueToSearch}/${value}`)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+   }
 
    return (
       <section>

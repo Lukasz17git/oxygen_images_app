@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { addCategoryToCategoriesModalAction } from "../../../Store/Actions/categoriesModalActions"
 import { setNewErrorAction } from "../../../Store/Actions/errorActions"
 import { fieldErrorsText, locationErrorsText, typeErrorsText } from "../../../Errors/errorList"
+import { basePath } from "../../../../basePath"
 
 const NewCategory = ({ getModalData }) => {
    const [value, setValue] = useState('')
@@ -35,7 +36,7 @@ const NewCategory = ({ getModalData }) => {
          />
          <ActionIcon
             className="w-40 h-40 br-5 bg-grey-light"
-            src="/CriticalIcons/add.svg"
+            src={`${basePath}CriticalIcons/add.svg`}
             iconClassName='w-20 h-20'
             onClick={addNewCategory} />
       </div>

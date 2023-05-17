@@ -1,3 +1,4 @@
+import { basePath } from "../../../../basePath"
 import ActionIcon from "../../../Components/ActionIcon"
 import { fetchConfig } from "../../../Data/uris"
 
@@ -16,7 +17,7 @@ const Download = ({ downloadImageUri, id }) => {
    return (
       <ActionIcon
          className="br-100% w-32 h-32 bg-overlay"
-         src="/CriticalIcons/download.svg"
+         src={`${basePath}CriticalIcons/download.svg`}
          iconClassName='w-20 h-20'
          onClick={downloadImage} />
    )

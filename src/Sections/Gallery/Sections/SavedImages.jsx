@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTypedSelector } from "../../../Store/store"
 import SavedImage from "../Components/SavedImage"
 import NavigationGroup from "../../DiscoverImages/Sections/NavigationGroup"
@@ -17,7 +17,8 @@ const SavedImages = () => {
          const savedImage = savedImages[savedImageId]
          const category = savedImage.category
          const description = savedImage.alt_description
-         if (category && categoriesFilter.length && !categoriesFilter.includes(category)) continue
+         if (!category && categoriesFilter.length) continue
+         if (categoriesFilter.length && !categoriesFilter.includes(category)) continue
          if (!description.includes(searchInput)) continue
          validImages.push(savedImage)
       }
@@ -29,11 +30,16 @@ const SavedImages = () => {
       ]
    })
 
+   console.log(page)
+
    const handleNavigation = (newValue) => {
-      setPage(newValue)
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      setTimeout(() => setPage(newValue), 500)
    }
-   console.log(totalPages)
+
+   useEffect(() => {
+      if (page !== 1) setPage(1)
+   }, [page, categoriesFilter, searchInput, orderBy])
 
    return (
       <>
