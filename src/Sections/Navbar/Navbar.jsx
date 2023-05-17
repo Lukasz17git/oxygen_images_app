@@ -10,12 +10,12 @@ const Navbar = () => {
          <section className="py-8 px-[4vw] frcb m-a">
             <Link href="/oxygen_images_app/">
                <a className="h-32 frcc">
-                  <img src="/CriticalIcons/logo.svg" loading="lazy" alt="logo-hero-section" />
+                  <img src="/oxygen_images_app/CriticalIcons/logo.svg" loading="lazy" alt="logo-hero-section" />
                </a>
             </Link>
             <Link href={`/oxygen_images_app/${linkToShow}`} className="frcc g-8">
                <a className="h-32 frcc">
-                  <img className="mt-1" src={`/CriticalIcons/${linkToShow}.svg`} loading="lazy" alt="logo-hero-section" />
+                  <img className="mt-1" src={`/oxygen_images_app/CriticalIcons/${linkToShow}.svg`} loading="lazy" alt="logo-hero-section" />
                </a>
             </Link>
          </section>
