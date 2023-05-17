@@ -12,7 +12,7 @@ const Discover = ({ params }) => {
 
    const [totalPages, setTotalPages] = useState(1)
 
-   const valueToSearch = params.search
+   const valueToSearch = params.search && decodeURIComponent(params.search)
    const page = params.page || 1
 
    const { dispatch, dispatchErrorWrappedThunk } = useDispatchErrorWrappedThunk()
