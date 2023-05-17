@@ -14,8 +14,8 @@ const CategoryFilter = ({ selectedCategoriesFilter }) => {
 
    return (
       <div>
-         <FormControl size='small' sx={{ minWidth: '12rem', maxWidth: '16rem', '.Mui-focused': { color: 'rgba(0, 0, 0, 0.6)' } }}>
-            <InputLabel id="categories-gallery-filter">{label}</InputLabel>
+         <FormControl size='small' sx={{ minWidth: '12rem', maxWidth: '16rem', '.Mui-focused': { color: 'rgba(0, 0, 0, 0.6) !important' } }}>
+            <InputLabel id="categories-gallery-filter" >{label}</InputLabel>
             <Select
                variant="standard"
                sx={{ '.MuiOutlinedInput-notchedOutline': { borderStyle: 'none' }, borderRadius: "0.25rem" }}

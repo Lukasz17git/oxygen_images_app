@@ -5,11 +5,13 @@ import NavigationGroup from "../../DiscoverImages/Sections/NavigationGroup"
 
 
 const SavedImages = () => {
-   const [page, setPage] = useState(1)
+   const [{ page }, setPage] = useState({ page: 1 })
+   // const [page, setPage] = useState(1)
    //filters
    const categoriesFilter = useTypedSelector(store => store.app.categoriesFilter)
    const searchInput = useTypedSelector(store => store.app.searchInput)
    const orderBy = useTypedSelector(store => store.app.orderBy)
+
    const [imagesToRender, totalPages] = useTypedSelector(store => {
       const savedImages = store.app.savedImages //its an objectMap
       const validImages = []
@@ -26,20 +28,23 @@ const SavedImages = () => {
       const imageAmmountPerPage = 10
       return [
          orderedImages.slice((page - 1) * imageAmmountPerPage, page * imageAmmountPerPage),
-         Math.trunc(orderedImages.length / imageAmmountPerPage) + 1
+         Math.trunc((orderedImages.length - 1) / imageAmmountPerPage) + 1
       ]
    })
 
-   console.log(page)
 
    const handleNavigation = (newValue) => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      setTimeout(() => setPage(newValue), 500)
+      console.log(newValue)
+      setTimeout(() => setPage({ page: newValue }), 500)
    }
 
+   console.log('rendered page', page)
+
    useEffect(() => {
-      if (page !== 1) setPage(1)
-   }, [page, categoriesFilter, searchInput, orderBy])
+      console.log('rendered effect')
+      setPage(c => c.page === 1 ? c : { page: 1 })
+   }, [categoriesFilter, searchInput, orderBy])
 
    return (
       <>

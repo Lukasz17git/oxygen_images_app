@@ -12,7 +12,7 @@ const OrderBy = () => {
 
    return (
       <select
-         className="h-40 w-94 br-4 px-4 bg-grey-light"
+         className="h-40 w-94 br-4 px-4 bg-grey-light lg:ml-a"
          value={selectedOrder}
          onChange={selectOrderBy}
       >
