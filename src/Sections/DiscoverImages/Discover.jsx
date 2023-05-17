@@ -3,14 +3,14 @@ import { useEffect, useState } from "react"
 import DiscoverInput from "../Hero/Shared/DiscoverInput"
 import DiscoveredImages from "./Sections/DiscoveredImages"
 import useDispatchErrorWrappedThunk from "../../Hooks/useDispatchErrorWrappedThunk"
-import { fetchConfig, searchImagesUri } from "../../Data/uris"
+import { fetchConfig, searchImagesUri, searchRandomUri } from "../../Data/uris"
 import { saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
 import NavigationGroup from "./Sections/NavigationGroup"
 import { useLocation } from "wouter"
 
 const Discover = ({ params }) => {
 
-   const [totalPages, setTotalPages] = useState(0)
+   const [totalPages, setTotalPages] = useState(1)
 
    const valueToSearch = params.search
    const page = params.page || 1
@@ -28,10 +28,10 @@ const Discover = ({ params }) => {
       let isStillValidForAsyncTask = true
 
       dispatchErrorWrappedThunk(async (dispatch, getState) => {
-         const res = await fetch(searchImagesUri(valueToSearch, page), fetchConfig)
+         const res = await fetch(!valueToSearch ? searchRandomUri() : searchImagesUri(valueToSearch, page), fetchConfig)
          const data = await res.json()
          if (!isStillValidForAsyncTask) return
-         const { results, total_pages } = data
+         const { results, total_pages } = !valueToSearch ? { results: data, total_pages: 1 } : data //different response for random uri
          const savedImages = getState().app.savedImages
          for (const image of results) {
             if (savedImages[image.id]) image.liked = true

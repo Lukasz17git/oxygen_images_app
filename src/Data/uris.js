@@ -7,3 +7,5 @@ export const fetchConfig = {
 }
 
 export const searchImagesUri = (searchValue, page) => `https://api.unsplash.com/search/photos?page=${page}&query=${searchValue}`
+
+export const searchRandomUri = () => `https://api.unsplash.com/photos/random?count=10`

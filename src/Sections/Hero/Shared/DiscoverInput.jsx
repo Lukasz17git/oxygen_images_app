@@ -5,8 +5,9 @@ import BigInput from "../../../Components/BigInput"
 
 const DiscoverInput = ({ initialValue = '' }) => {
 
-   const [, setLocation] = useLocation()
-   const handleSearch = (value) => setLocation(value ? `/discover/${value}/1` : '/discover')
+   const [location, setLocation] = useLocation()
+   console.log('location', location)
+   const handleSearch = (value) => setLocation(value ? `/discover/${value}/1` : `/discover${location.slice(-1) === '/' ? '' : '/'}`)
 
    return <BigInput initialValue={initialValue} handleSearch={handleSearch} />
 }

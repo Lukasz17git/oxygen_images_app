@@ -3,9 +3,14 @@ import NavigationButton from "../Components/NavigationButton"
 
 const NavigationGroup = ({ page, totalPages, onClickNavigation }) => {
 
-   const initialNavigationValue = page > 3 ? page - 2 : 1
+   // const initialNavigationValue = page > 3 ? page - 2 : 1
+
+   const initialNavigationValue = (totalPages - page) < 2
+      ? totalPages < 5 ? 1 : totalPages - 4
+      : page > 3 ? page - 2 : 1
+
    const navigationButtons = Array(totalPages > 5 ? 5 : totalPages).fill(initialNavigationValue)
-   const shouldDisplayDots = totalPages - page > 2
+   const shouldDisplayDots = totalPages > 5 && totalPages - page > 2
 
 
    return (

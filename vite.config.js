@@ -5,9 +5,9 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+   base: '/oxygen_images_app/',
    plugins: [react(), viteCompression(), visualizer({ open: true, gzipSize: true, brotliSize: true })],
    build: {
       assetsInlineLimit: 0,
-      outDir: '../build',
    },
 })
