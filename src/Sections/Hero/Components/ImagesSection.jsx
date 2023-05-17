@@ -10,4 +10,5 @@ const ImagesSection = ({ children, title }) => {
       </section>
    )
 }
+
 export default ImagesSection

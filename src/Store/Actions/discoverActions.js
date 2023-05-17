@@ -17,6 +17,11 @@ export const saveSearchedImagesAction = (unsplashImages) => {
 }
 
 
+export const clearSearchedImagesAction = () => storeUpdate({
+   [`app.searchedImages`]: []
+})
+
+
 export const likeSearchedImageAction = (imageIndex) => storeUpdate((store) => {
    const image = store.app.searchedImages[imageIndex]
    return {

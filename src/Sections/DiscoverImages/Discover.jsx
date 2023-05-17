@@ -4,7 +4,7 @@ import DiscoverInput from "../Hero/Shared/DiscoverInput"
 import DiscoveredImages from "./Sections/DiscoveredImages"
 import useDispatchErrorWrappedThunk from "../../Hooks/useDispatchErrorWrappedThunk"
 import { fetchConfig, searchImagesUri, searchRandomUri } from "../../Data/uris"
-import { saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
+import { clearSearchedImagesAction, saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
 import NavigationGroup from "./Sections/NavigationGroup"
 import { useLocation } from "wouter"
 
@@ -15,9 +15,9 @@ const Discover = ({ params }) => {
    const valueToSearch = params.search
    const page = params.page || 1
 
-   const { dispatchErrorWrappedThunk } = useDispatchErrorWrappedThunk()
+   const { dispatch, dispatchErrorWrappedThunk } = useDispatchErrorWrappedThunk()
    useEffect(() => {
-      
+
       let isStillValidForAsyncTask = true
 
       dispatchErrorWrappedThunk(async (dispatch, getState) => {
@@ -35,7 +35,9 @@ const Discover = ({ params }) => {
          dispatch(saveSearchedImagesAction(reducedResults))
          setTotalPages(total_pages)
       })
+
       return () => isStillValidForAsyncTask = false
+
    }, [page, valueToSearch, params])
 
 
@@ -44,6 +46,11 @@ const Discover = ({ params }) => {
       setLocation(`discover/${valueToSearch}/${value}`)
       window.scrollTo({ top: 0, behavior: 'smooth' })
    }
+
+   //cleanup the store
+   useEffect(() => {
+      return () => dispatch(clearSearchedImagesAction())
+   }, [dispatch])
 
    return (
       <section>
