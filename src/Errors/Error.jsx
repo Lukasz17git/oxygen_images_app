@@ -22,9 +22,9 @@ const Error = () => {
             <h2>Error:</h2>
             <img className="w-32 h-32" src="/Icons/error.svg" loading="lazy" alt="error" />
          </div>
-         {locationErrorText && <ErrorDescription title="Lugar:" text={locationErrorText} />}
-         {fieldErrorText && <ErrorDescription title="En:" text={fieldErrorText} />}
-         {typeErrorText && <ErrorDescription title="Tipo de error:" text={typeErrorText} />}
+         {locationErrorText && <ErrorDescription title="Place:" text={locationErrorText} />}
+         {fieldErrorText && <ErrorDescription title="In:" text={fieldErrorText} />}
+         {typeErrorText && <ErrorDescription title="Error type:" text={typeErrorText} />}
       </button>
    ))
 }

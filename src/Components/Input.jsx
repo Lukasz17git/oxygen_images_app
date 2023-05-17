@@ -1,6 +1,6 @@
 
 
-const Input = ({ value, onChange, label, placeholder, className, inputClassName, onKeyDown }) => {
+const Input = ({ value, onChange, label, placeholder, onKeyDown, className = '', inputClassName = '', labelClassName }) => {
 
    return (
       <label className={`input ${className}`}>
@@ -12,7 +12,7 @@ const Input = ({ value, onChange, label, placeholder, className, inputClassName,
             placeholder={placeholder}
             onKeyDown={onKeyDown}
          />
-         <span>
+         <span className={labelClassName}>
             {label}
          </span>
       </label>

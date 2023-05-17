@@ -8,6 +8,7 @@
 
 .input {
    position: relative;
+   display: block;
    height: 2.75rem;
    --input-color-text: var(--main);
    --input-color-border: var(--main-light);

@@ -147,14 +147,18 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
       { values: theme('spacing') }
    );
    matchUtilities(
-      { bc: (value) => ({ "--tw-b-opacity": "1", color: value, border: 'solid 3px' }) },
+      { bc: (value) => ({ "--tw-border-opacity": "1", border: `solid 2px ${value}` }) },
       {
          type: ['color'],
-         values: Object.fromEntries(Object.entries(theme('colors')).map(([k, v]) => [k, v.replace('<alpha-value>', 'var(--tw-b-opacity)')])),
+         values: Object.fromEntries(Object.entries(theme('colors')).map(([k, v]) => [k, v.replace('<alpha-value>', 'var(--tw-border-opacity)')])),
       }
    );
    matchUtilities(
-      { bw: (value) => ({ border: `solid ${value}` }) },
+      { bo: (value) => ({ "--tw-border-opacity": value }) },
+      { values: theme('opacity') }
+   );
+   matchUtilities(
+      { bw: (value) => ({ borderWidth: value }) },
       { values: theme('spacing') }
    );
    matchUtilities(
@@ -173,15 +177,29 @@ export function addAbbreviations({ addUtilities, matchUtilities, theme }) {
       { bbw: (value) => ({ borderBottomWidth: value }) },
       { values: theme('spacing') }
    );
-   matchUtilities(
-      { bo: (value) => ({ "--tw-b-opacity": value }) },
-      { values: theme('opacity') }
-   );
    addUtilities({
       ".bnone": { borderStyle: "none" },
       ".bdotted": { borderStyle: "dotted" },
       ".bdashed": { borderStyle: "dashed" },
       ".bdouble": { borderStyle: "double" }
+   });
+   matchUtilities(
+      { oc: (value) => ({ "--tw-outline-opacity": "1", outline: `solid 3px ${value}` }) },
+      {
+         type: ['color'],
+         values: Object.fromEntries(Object.entries(theme('colors')).map(([k, v]) => [k, v.replace('<alpha-value>', 'var(--tw-outline-opacity)')])),
+      }
+   );
+   matchUtilities(
+      { oo: (value) => ({ "--tw-outline-opacity": value }) },
+      { values: theme('opacity') }
+   );
+   matchUtilities(
+      { ow: (value) => ({ outlineWidth: value }) },
+      { values: theme('spacing') }
+   );
+   addUtilities({
+      ".onone": { outline: "none" }
    })
 }
 
@@ -568,4 +586,29 @@ export const lineHeightValues = {
    "1.75": '1.75em',
    "1.875": '1.875em',
    "2": '2em'
+}
+
+
+// TO TEST //
+
+
+export function addGridUtilities({ addUtilities }) {
+   addUtilities({
+      ".g": {
+         display: "grid",
+      },
+      ".gc": {
+         display: "grid",
+         alignItems: 'center'
+      },
+      ".gnc": {
+         display: "grid",
+         justifyItems: 'center'
+      },
+      ".gcc": {
+         display: "grid",
+         alignItems: 'center',
+         justifyItems: 'center'
+      },
+   })
 }

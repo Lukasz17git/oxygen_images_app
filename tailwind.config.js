@@ -3,7 +3,7 @@ import plugin from 'tailwindcss/plugin'
 
 import {
    defaultColors,
-   addAbbreviations, addFlexUtilities, addTextUtilities, addCustomUtilities, addShadowAbbreviation,
+   addAbbreviations, addFlexUtilities, addTextUtilities, addCustomUtilities, addShadowAbbreviation, addGridUtilities,
    renameModifiers, pixelSpacing, heightSpacing, widthSpacing, extendOpacity, extendZIndex, extendScreens, lineHeightValues
 } from './tailwindCustomConfig.js'
 
@@ -23,7 +23,8 @@ export default {
             'grey-dark': 'rgb(var(--tw-grey-dark) / <alpha-value>)',
             'grey-light': 'rgb(var(--tw-grey-light) / <alpha-value>)',
             'white': 'rgb(var(--tw-white) / <alpha-value>)',
-            'overlay': 'rgba(var(--tw-overlay))',
+            'overlay': 'var(--overlay)',
+            'on-focus': 'rgb(var(--tw-on-focus) / <alpha-value>)',
             'red': 'rgb(var(--tw-red) / <alpha-value>)',
          },
          boxShadow: {
@@ -60,6 +61,7 @@ export default {
       plugin(addFlexUtilities),
       plugin(addTextUtilities),
       plugin(renameModifiers),
+      plugin(addGridUtilities)
    ],
 }
 

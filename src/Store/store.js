@@ -10,9 +10,15 @@ const initialState = {
       data: null
    },
    app: {
-      searchedValues: [], //array of strings
-      savedImages: [], //array of image (initial image)
-      removedImages: [] // array of image (initial image)
+      searchedImages: [],
+      categories: JSON.parse(localStorage.getItem('categories')) ?? [],
+      searchInput: '',
+      categoriesFilter: [],
+      orderBy: '',
+      savedImages: JSON.parse(localStorage.getItem('savedImages')) ?? {}, //object-map of images (initial image)
+      lastSearchedImages: JSON.parse(localStorage.getItem('lastSearchedImages')) ?? [],
+      lastSavedImages: JSON.parse(localStorage.getItem('lastSavedImages')) ?? [],
+      lastRemovedImages: JSON.parse(localStorage.getItem('lastRemovedImages')) ?? []
    }
 }
 
@@ -27,6 +33,47 @@ const rootReducer = (state = initialState, action) => {
  * @type {import("redux").Store<typeof initialState>}
  */
 const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
+
+
+/* LOCAL STORE SUBSCRIPTION */
+
+let previousStoreSavedImagesState = store.getState().app.savedImages
+let previousStoreCategoriesState = store.getState().app.categories
+let previousStoreLastSearchedImagesState = store.getState().app.lastSearchedImages
+let previousStoreLastSavedImagesState = store.getState().app.lastSavedImages
+let previousStoreLastRemovedState = store.getState().app.lastRemovedImages
+
+const updateLocalStore = () => {
+   const savedImages = store.getState().app.savedImages
+   const categories = store.getState().app.categories
+   const lastSearchedImages = store.getState().app.lastSearchedImages
+   const lastSavedImages = store.getState().app.lastSavedImages
+   const lastRemovedImages = store.getState().app.lastRemovedImages
+
+   if (savedImages !== previousStoreSavedImagesState) {
+      previousStoreSavedImagesState = savedImages
+      localStorage.setItem('savedImages', JSON.stringify(savedImages))
+   }
+   if (categories !== previousStoreCategoriesState) {
+      previousStoreCategoriesState = categories
+      localStorage.setItem('categories', JSON.stringify(categories))
+   }
+   if (lastSearchedImages !== previousStoreLastSearchedImagesState) {
+      previousStoreLastSearchedImagesState = lastSearchedImages
+      localStorage.setItem('lastSearchedImages', JSON.stringify(lastSearchedImages))
+   }
+   if (lastSavedImages !== previousStoreLastSavedImagesState) {
+      previousStoreLastSavedImagesState = lastSavedImages
+      localStorage.setItem('lastSavedImages', JSON.stringify(lastSavedImages))
+   }
+   if (lastRemovedImages !== previousStoreLastRemovedState) {
+      previousStoreLastRemovedState = lastRemovedImages
+      localStorage.setItem('lastRemovedImages', JSON.stringify(lastRemovedImages))
+   }
+
+}
+
+store.subscribe(updateLocalStore)
 
 /**
  * Aplying types to the useSelector hook

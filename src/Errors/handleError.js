@@ -16,6 +16,7 @@ export const newError = (location, field, type) => ({
 
 const handleError = (dispatch, error) => {
 
+   console.log('error', error)
 
    if (typeof error !== 'object') return dispatch(setNewErrorAction(unknownError))
 

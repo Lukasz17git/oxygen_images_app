@@ -1,9 +1,60 @@
 
+import { useEffect, useState } from "react"
+import DiscoverInput from "../Hero/Shared/DiscoverInput"
+import DiscoveredImages from "./Sections/DiscoveredImages"
+import useDispatchErrorWrappedThunk from "../../Hooks/useDispatchErrorWrappedThunk"
+import { fetchConfig, searchImagesUri } from "../../Data/uris"
+import { saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
+import NavigationGroup from "./Sections/NavigationGroup"
+import { useLocation } from "wouter"
 
 const Discover = ({ params }) => {
-   console.log(params)
+
+   const [totalPages, setTotalPages] = useState(0)
+
+   const valueToSearch = params.search
+   const page = params.page || 1
+
+
+   const [, setLocation] = useLocation()
+   const handleNavigation = (value) => {
+      setLocation(`/discover/${valueToSearch}/${value}`)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+   }
+
+   const { dispatchErrorWrappedThunk } = useDispatchErrorWrappedThunk()
+
+   useEffect(() => {
+      let isStillValidForAsyncTask = true
+
+      dispatchErrorWrappedThunk(async (dispatch, getState) => {
+         const res = await fetch(searchImagesUri(valueToSearch, page), fetchConfig)
+         const data = await res.json()
+         if (!isStillValidForAsyncTask) return
+         const { results, total_pages } = data
+         const savedImages = getState().app.savedImages
+         for (const image of results) {
+            if (savedImages[image.id]) image.liked = true
+         }
+         const reducedResults = results.map(({ urls, id, alt_description, created_at, likes, width, height, liked }) => (
+            { id, alt_description, created_at, likes, width, height, smallUri: urls.small, bigUri: urls.regular, liked }
+         ))
+         dispatch(saveSearchedImagesAction(reducedResults))
+         setTotalPages(total_pages)
+      })
+      return () => isStillValidForAsyncTask = false
+   }, [page, valueToSearch, dispatchErrorWrappedThunk])
+
+
    return (
-      <section>Discover</section>
+      <section>
+         <h2 className="fccc mt-70 g-8 ts-40 ls-2">Discover</h2>
+         <div className="py-48 frcc g-4">
+            <DiscoverInput initialValue={valueToSearch} />
+         </div>
+         <DiscoveredImages />
+         {valueToSearch && <NavigationGroup page={page} totalPages={totalPages} onClickNavigation={handleNavigation} />}
+      </section>
    )
 }
 export default Discover
