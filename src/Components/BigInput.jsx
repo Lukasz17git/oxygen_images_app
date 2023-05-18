@@ -4,7 +4,7 @@ import Input from "./Input"
 import { basePath } from "../../basePath"
 
 
-const BigInput = ({ initialValue = '', handleSearch }) => {
+const BigInput = ({ initialValue = '', handleSearch, label = 'Discover Images', placeholder = 'Mountains' }) => {
 
    const [value, setValue] = useState(initialValue)
    const handleInput = (e) => setValue(e.target.value)
@@ -16,8 +16,8 @@ const BigInput = ({ initialValue = '', handleSearch }) => {
          <Input
             value={value}
             onChange={handleInput}
-            label='Discover Images'
-            placeholder='Mountains'
+            label={label}
+            placeholder={placeholder}
             className='w-344'
             inputClassName='!bw-3 br-5'
             labelClassName='!lh-4'
