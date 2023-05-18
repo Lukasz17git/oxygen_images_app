@@ -9,7 +9,6 @@ const DiscoveredImages = () => {
    const arrayHolder = Array(searchedImagesLength).fill()
    const pairedImagesArrayHolder = splitArrayEveryTwo(arrayHolder)
 
-
    return (
       <div className="fc g-8 md:g-16">
          {pairedImagesArrayHolder.map((pairOfImages, pairIndex) => (
