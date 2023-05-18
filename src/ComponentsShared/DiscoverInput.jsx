@@ -1,6 +1,6 @@
 
 import { useLocation } from "wouter"
-import BigInput from "../../../Components/BigInput"
+import BigInput from "../Components/BigInput"
 
 
 const DiscoverInput = ({ initialValue = '' }) => {

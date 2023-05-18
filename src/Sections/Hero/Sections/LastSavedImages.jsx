@@ -1,6 +1,6 @@
 
 import { useTypedSelector } from "../../../Store/store"
-import Image from "../Components/Image"
+import SearchedImage from "../../AppImage/SearchedImage"
 import ImagesSection from "../Components/ImagesSection"
 
 const LastSavedImages = () => {
@@ -8,8 +8,8 @@ const LastSavedImages = () => {
 
    return (
       <ImagesSection title='Recently Saved:'>
-         {savedImages.map(image => (
-            <Image image={image} key={image.id} />
+         {savedImages.map((_, index) => (
+            <SearchedImage key={index} className="flex-shrink-0 h-100%" storePath={`app.lastSavedImages.${index}`} />
          ))}
       </ImagesSection>
    )

@@ -1,9 +1,7 @@
-import { remove } from "maraj";
+import { createSelectorFromStringPath, remove } from "maraj";
 import { storeUpdate } from "../rootReducers";
 
-
 export const saveSearchedImagesAction = (unsplashImages) => {
-   console.log(unsplashImages)
    return storeUpdate(() => ({
       ['app.searchedImages']: unsplashImages,
       ['app.lastSearchedImages']: c => {
@@ -16,16 +14,13 @@ export const saveSearchedImagesAction = (unsplashImages) => {
    }))
 }
 
-
 export const clearSearchedImagesAction = () => storeUpdate({
    [`app.searchedImages`]: []
 })
 
-
-export const likeSearchedImageAction = (imageIndex) => storeUpdate((store) => {
-   const image = store.app.searchedImages[imageIndex]
+export const likeSearchedImageAction = (storePath) => storeUpdate((store) => {
+   const image = createSelectorFromStringPath(storePath)(store)
    return {
-      [`app.searchedImages.${imageIndex}.liked`]: true,
       [`app.savedImages.${image.id}`]: image,
       ['app.lastSavedImages']: c => {
          if (c.find(img => img.id === image.id)) return c
@@ -36,11 +31,9 @@ export const likeSearchedImageAction = (imageIndex) => storeUpdate((store) => {
    }
 })
 
-
-export const dislikeSearchedImageAction = (imageIndex) => storeUpdate((store) => {
-   const imageId = store.app.searchedImages[imageIndex].id
+export const dislikeSearchedImageAction = (storePath) => storeUpdate((store) => {
+   const imageId = createSelectorFromStringPath(storePath + '.id')(store)
    return {
-      [`app.searchedImages.${imageIndex}.liked`]: false,
       [`app.savedImages`]: remove(imageId)
    }
 })

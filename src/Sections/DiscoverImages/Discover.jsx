@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import DiscoverInput from "../Hero/Shared/DiscoverInput"
+import DiscoverInput from "../../ComponentsShared/DiscoverInput"
 import DiscoveredImages from "./Sections/DiscoveredImages"
 import useDispatchErrorWrappedThunk from "../../Hooks/useDispatchErrorWrappedThunk"
 import { fetchConfig, searchImagesUri, searchRandomUri } from "../../Data/uris"
@@ -21,18 +21,16 @@ const Discover = ({ params }) => {
 
       let isStillValidForAsyncTask = true
 
-      dispatchErrorWrappedThunk(async (dispatch, getState) => {
+      dispatchErrorWrappedThunk(async (dispatch) => {
          const res = await fetch(!valueToSearch ? searchRandomUri() : searchImagesUri(valueToSearch, page), fetchConfig)
          const data = await res.json()
          if (!isStillValidForAsyncTask) return
          const { results, total_pages } = !valueToSearch ? { results: data, total_pages: 1 } : data //different response for random uri
-         const savedImages = getState().app.savedImages
-         for (const image of results) {
-            if (savedImages[image.id]) image.liked = true
-         }
-         const reducedResults = results.map(({ urls, id, alt_description, created_at, likes, width, height, liked }) => (
-            { id, alt_description, created_at, likes, width, height, smallUri: urls.small, bigUri: urls.regular, liked }
+
+         const reducedResults = results.map(({ urls, id, alt_description, created_at, likes, width, height }) => (
+            { id, alt_description, created_at, likes, width, height, smallUri: urls.small, bigUri: urls.regular }
          ))
+
          dispatch(saveSearchedImagesAction(reducedResults))
          setTotalPages(total_pages)
       })

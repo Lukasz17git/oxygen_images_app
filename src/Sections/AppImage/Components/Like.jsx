@@ -4,10 +4,11 @@ import { dislikeSearchedImageAction, likeSearchedImageAction } from "../../../St
 import { basePath } from "../../../../basePath"
 
 
-const Like = ({ isLiked, imageIndex }) => {
+const Like = ({ isLiked, storePath }) => {
 
    const dispatch = useDispatch()
-   const handleClick = () => dispatch(isLiked ? dislikeSearchedImageAction(imageIndex) : likeSearchedImageAction(imageIndex))
+   const handleClick = () => dispatch(isLiked ? dislikeSearchedImageAction(storePath) : likeSearchedImageAction(storePath))
+
    return (
       <ActionIcon
          className="br-100% w-32 h-32 bg-overlay"

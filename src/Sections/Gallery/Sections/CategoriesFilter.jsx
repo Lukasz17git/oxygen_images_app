@@ -5,7 +5,9 @@ import CategoryChip from "../Components/CategoryChip"
 
 
 const CategoriesFilter = () => {
+   
    const selectedCategoriesFilter = useTypedSelector(store => store.app.categoriesFilter)
+
    return (
       <>
          <div className="frcc g-4">
@@ -20,4 +22,5 @@ const CategoriesFilter = () => {
       </>
    )
 }
+
 export default CategoriesFilter

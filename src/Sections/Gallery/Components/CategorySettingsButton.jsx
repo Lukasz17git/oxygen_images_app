@@ -5,8 +5,10 @@ import { basePath } from "../../../../basePath"
 
 
 const CategorySettingsButton = () => {
+   
    const dispatch = useDispatch()
    const openCategoryModal = () => dispatch(openCategoriesModalAction())
+
    return (
       <ActionIcon
          className="w-36 h-36 br-5 bg-grey-light"

@@ -8,6 +8,7 @@ import { fieldErrorsText, locationErrorsText, typeErrorsText } from "../../../Er
 import { basePath } from "../../../../basePath"
 
 const NewCategory = ({ getModalData }) => {
+   
    const [value, setValue] = useState('')
 
    const dispatch = useDispatch()

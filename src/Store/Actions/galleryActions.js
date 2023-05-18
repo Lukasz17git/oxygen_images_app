@@ -6,12 +6,9 @@ export const setGalleryFilterAction = (value) => storeUpdate({
    [`app.searchInput`]: value
 })
 
-export const setGalleryCategoriesFilterAction = (value) => {
-   console.log(value)
-   return storeUpdate({
-      [`app.categoriesFilter`]: typeof value === 'string' ? value.split(',') : value
-   })
-}
+export const setGalleryCategoriesFilterAction = (value) => storeUpdate({
+   [`app.categoriesFilter`]: typeof value === 'string' ? value.split(',') : value
+})
 
 export const removeOneCategoryFilterAction = (index) => storeUpdate({
    ['app.categoriesFilter']: remove(index)

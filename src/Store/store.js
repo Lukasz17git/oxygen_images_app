@@ -43,8 +43,6 @@ const previousStoreAppState = (({ savedImages, categories, lastSearchedImages, l
 
 const updateLocalStore = () => {
 
-   console.log('running subscription')
-
    for (const storeSectionKey in previousStoreAppState) {
       const currentState = store.getState().app[storeSectionKey]
       if (currentState !== previousStoreAppState[storeSectionKey]) {
@@ -56,6 +54,10 @@ const updateLocalStore = () => {
 }
 
 store.subscribe(updateLocalStore)
+
+
+/* END OF LOCAL STORE SUBSCRIPTION */
+
 
 /**
  * Aplying types to the useSelector hook

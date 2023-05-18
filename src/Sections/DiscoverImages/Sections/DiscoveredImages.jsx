@@ -1,6 +1,6 @@
 import { useTypedSelector } from "../../../Store/store"
 import splitArrayEveryTwo from "../../../Utils/splitArrayEveryTwo"
-import SearchedImage from "../Components/SearchedImage"
+import SearchedImage from "../../AppImage/SearchedImage"
 
 
 const DiscoveredImages = () => {
@@ -14,7 +14,7 @@ const DiscoveredImages = () => {
          {pairedImagesArrayHolder.map((pairOfImages, pairIndex) => (
             <div key={pairIndex} className="fc sm:frca g-8 md:g-16">
                {pairOfImages.map((_, index) => (
-                  <SearchedImage key={index} index={pairIndex * 2 + index} />
+                  <SearchedImage key={index} storePath={`app.searchedImages.${pairIndex * 2 + index}`} />
                ))}
             </div>
          ))}
