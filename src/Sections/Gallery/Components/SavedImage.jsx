@@ -24,7 +24,7 @@ const SavedImage = ({ image }) => {
             srcSet={`${bigUri} 700w, ${smallUri} 400w`}
             loading="lazy"
             alt={alt_description} />
-         <div className="pos-a l-0 t-0 w-100% h-100% p-4 z-1">
+         <div className="pos-a l-0 t-0 w-100% h-100% p-4 z-1 animate-fade animate-duration-400 animate-delay-200">
             {edit && <EditLayer />}
             {!showInfo ?
                <>

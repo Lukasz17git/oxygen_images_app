@@ -60,7 +60,8 @@ export default {
       plugin(addFlexUtilities),
       plugin(addTextUtilities),
       plugin(renameModifiers),
-      plugin(addGridUtilities)
+      plugin(addGridUtilities),
+      require('tailwindcss-animated')
    ],
 }
 

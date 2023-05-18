@@ -7,6 +7,7 @@ import { fetchConfig, searchImagesUri, searchRandomUri } from "../../Data/uris"
 import { clearSearchedImagesAction, saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
 import NavigationGroup from "../../Components/NavigationGroup"
 import { useLocation } from "wouter"
+import RandomButton from "./Components/RandomButton"
 
 const Discover = ({ params }) => {
 
@@ -59,7 +60,9 @@ const Discover = ({ params }) => {
             <DiscoverInput initialValue={valueToSearch} />
          </div>
          <DiscoveredImages />
-         {valueToSearch && <NavigationGroup page={page} totalPages={totalPages} onClickNavigation={handleNavigation} />}
+         {valueToSearch
+            ? <NavigationGroup page={page} totalPages={totalPages} onClickNavigation={handleNavigation} />
+            : <RandomButton />}
       </section>
    )
 }

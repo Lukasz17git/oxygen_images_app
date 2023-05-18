@@ -25,7 +25,7 @@ const EditCategory = ({ modalDataPath, index }) => {
             label='New Category'
             placeholder='animals'
             className="flex-1 !h-40 bc-grey-dark br-4"
-            inputClassName='!bw-0 !bg-grey-light !bgo-50 br-4'
+            inputClassName='!bw-0 !bg-grey-light !bgo-5 br-4 !tc-main-dark'
             labelClassName='none'
          />
          <ActionIcon
