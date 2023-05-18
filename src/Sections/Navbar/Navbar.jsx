@@ -5,7 +5,6 @@ import useHashLocation from "../../Hooks/useHashLocation"
 const Navbar = () => {
 
    const [location] = useHashLocation()
-   console.log(location)
    const linkToShow = location.includes('gallery') ? 'discover' : 'gallery'
 
    return (

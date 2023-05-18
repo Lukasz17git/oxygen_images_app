@@ -12,7 +12,7 @@ const CategoriesFilter = () => {
             <CategorySettingsButton />
             <CategoryFilter selectedCategoriesFilter={selectedCategoriesFilter} />
          </div>
-         <div className="fw g-4 py-8">
+         <div className="fw g-4 py-8 sm:px-6">
             {selectedCategoriesFilter.map((selectedCategory, index) => (
                <CategoryChip key={selectedCategory} category={selectedCategory} index={index} />
             ))}

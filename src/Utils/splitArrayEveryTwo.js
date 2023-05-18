@@ -2,7 +2,9 @@
 const splitArrayEveryTwo = (arrayToConvert) => {
    const output = []
    for (let i = 0; i < arrayToConvert.length; i += 2) {
-      output.push([arrayToConvert[i], arrayToConvert[i + 1]])
+      const holder = [arrayToConvert[i]]
+      if (arrayToConvert[i + 1]) holder.push(arrayToConvert[i + 1])
+      output.push(holder)
    }
    return output
 }
