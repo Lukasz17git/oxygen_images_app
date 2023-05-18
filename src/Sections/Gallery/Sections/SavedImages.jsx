@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useTypedSelector } from "../../../Store/store"
 import SavedImage from "../Components/SavedImage"
-import NavigationGroup from "../../DiscoverImages/Sections/NavigationGroup"
+import NavigationGroup from "../../../Components/NavigationGroup"
+import splitArrayEveryTwo from "../../../Utils/splitArrayEveryTwo"
 
 
 const SavedImages = () => {
@@ -46,11 +47,17 @@ const SavedImages = () => {
       setPage(c => c.page === 1 ? c : { page: 1 })
    }, [categoriesFilter, searchInput, orderBy])
 
+   const pairedImages = splitArrayEveryTwo(imagesToRender)
+
    return (
       <>
-         <div className="gcc grid-cols-1 md:grid-cols-2 g-8">
-            {imagesToRender.map(image => (
-               <SavedImage key={image.id} image={image} />
+         <div className="fc g-8 md:g-16">
+            {pairedImages.map((pairOfImages, index) => (
+               <div key={index} className="fc sm:frca g-8 md:g-16">
+                  {pairOfImages.map(image => (
+                     <SavedImage key={image.id} image={image} />
+                  ))}
+               </div>
             ))}
          </div>
          {totalPages > 1 && <NavigationGroup page={page} totalPages={totalPages} onClickNavigation={handleNavigation} />}

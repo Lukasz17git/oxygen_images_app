@@ -5,7 +5,7 @@ import DiscoveredImages from "./Sections/DiscoveredImages"
 import useDispatchErrorWrappedThunk from "../../Hooks/useDispatchErrorWrappedThunk"
 import { fetchConfig, searchImagesUri, searchRandomUri } from "../../Data/uris"
 import { clearSearchedImagesAction, saveSearchedImagesAction } from "../../Store/Actions/discoverActions"
-import NavigationGroup from "./Sections/NavigationGroup"
+import NavigationGroup from "../../Components/NavigationGroup"
 import { useLocation } from "wouter"
 
 const Discover = ({ params }) => {
@@ -54,8 +54,8 @@ const Discover = ({ params }) => {
 
    return (
       <section>
-         <h2 className="fccc mt-70 g-8 ts-40 ls-2">Discover</h2>
-         <div className="py-48 frcc g-4">
+         <h2 className="fccc mt-48 g-8 ts-40 ls-2">Discover</h2>
+         <div className="py-32 frcc g-4">
             <DiscoverInput initialValue={valueToSearch} />
          </div>
          <DiscoveredImages />

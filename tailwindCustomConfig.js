@@ -263,7 +263,7 @@ export function addTextUtilities({ addUtilities, matchUtilities, theme }) {
    );
    matchUtilities(
       { lh: (value) => ({ lineHeight: value }) },
-      { values: theme('lineHeight') }
+      { values: theme('spacing') }
    );
    matchUtilities(
       { ls: (value) => ({ letterSpacing: value }) },
@@ -379,12 +379,34 @@ export function addFlexUtilities({ addUtilities }) {
 
 //add more values
 export const pixelSpacing = {
+   // percentages
    a: 'auto',
    '25p': '25%',
+   '25%': '25%',
    '50p': '50%',
+   '50%': '50%',
    '75p': '75%',
+   '75%': '75%',
    '100p': '100%',
    '100%': '100%',
+   // ems
+   "0.5em": '0.5em',
+   "0.6em": '0.6em',
+   "0.7em": '0.7em',
+   "0.8em": '0.8em',
+   "0.9em": '0.9em',
+   "1em": '1em',
+   "1.1em": '1.1em',
+   "1.2em": '1.2em',
+   "1.3em": '1.3em',
+   "1.4em": '1.4em',
+   "1.5em": '1.5em',
+   "1.6em": '1.6em',
+   "1.7em": '1.7em',
+   "1.8em": '1.8em',
+   "1.9em": '1.9em',
+   "2em": '2em',
+   // pixels => rems
    0: '0px',
    1: '0.0625rem',
    2: '0.125rem',
@@ -572,25 +594,8 @@ export const extendZIndex = {
    9999: '9999',
 }
 
-export const lineHeightValues = {
-   "0.5": '0.5em',
-   "0.625": '0.625em',
-   "0.75": '0.75em',
-   "0.875": '0.875em',
-   "1": '1em',
-   "1.125": '1.125em',
-   "1.25": '1.25em',
-   "1.325": '1.325em',
-   "1.5": '1.5em',
-   "1.625": '1.625em',
-   "1.75": '1.75em',
-   "1.875": '1.875em',
-   "2": '2em'
-}
-
 
 // TO TEST //
-
 
 export function addGridUtilities({ addUtilities }) {
    addUtilities({

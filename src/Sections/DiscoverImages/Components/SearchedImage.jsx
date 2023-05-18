@@ -14,9 +14,9 @@ const SearchedImage = ({ index }) => {
    const { id, alt_description, liked, created_at, likes, width, height, smallUri, bigUri } = searchedImage
 
    return (
-      <div className="pos-r w-fit h-fit max-w-100% max-h-100%">
+      <div className="pos-r">
          <img
-            className="block max-w-100% max-h-544 object-contain br-16 s-modal"
+            className="block max-w-100% max-h-[960px] br-16 s-modal"
             src={smallUri}
             srcSet={`${bigUri} 700w, ${smallUri} 400w`}
             loading="lazy"

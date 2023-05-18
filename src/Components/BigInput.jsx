@@ -20,6 +20,7 @@ const BigInput = ({ initialValue = '', handleSearch }) => {
             placeholder='Mountains'
             className='w-344'
             inputClassName='!bw-3 br-5'
+            labelClassName='!lh-4'
             onKeyDown={handleKeyDown}
          />
          <ActionIcon

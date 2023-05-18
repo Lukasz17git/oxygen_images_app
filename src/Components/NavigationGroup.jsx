@@ -1,4 +1,4 @@
-import NavigationButton from "../Components/NavigationButton"
+import NavigationButton from "./NavigationButton"
 
 
 const NavigationGroup = ({ page, totalPages, onClickNavigation }) => {
