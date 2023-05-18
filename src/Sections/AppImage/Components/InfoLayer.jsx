@@ -2,7 +2,7 @@
 
 const InfoLayer = ({ id, created_at, likes, width, height, description }) => {
    return (
-      <div className="bg-grey-light bgo-80 p-16 py-20 pos-r w-100% h-100% br-16 oya">
+      <div className="bg-grey-light bgo-80 p-16 py-20 pos-r w-100% h-100% br-14 oya">
          <InfoRow label='Id' text={id} />
          <InfoRow label='Date' text={created_at.slice(0, 10)} />
          <InfoRow label='Likes' text={likes} />

@@ -53,7 +53,7 @@ const Discover = ({ params }) => {
 
    return (
       <section>
-         <h2 className="fccc mt-48 g-8 ts-40 ls-2">Discover</h2>
+         <h2 className="fccc mt-48 g-8 ts-40 ls-2 tc-main-light">Discover</h2>
          <div className="py-32 frcc g-4">
             <DiscoverInput initialValue={valueToSearch} />
          </div>
